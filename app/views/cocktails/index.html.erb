@@ -1,0 +1,65 @@
+
+<nav class="navbar navbar-light bg-light sticky">
+  <div>
+    <a class="logo" href="../cocktails"><i class="fas fa-cocktail"></i></a>
+    <a href="../cocktails"class="navbar-brand">BathTub Gin</a>
+
+  </div>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <%= link_to 'Add a Cocktail', new_cocktail_path, class: "btn btn-outline-secondary my-2 my-sm-0 ml-2" %>
+
+    <br>
+  </form>
+</nav>
+
+<!-- <div class="home-navbar">
+  <div class="logo">
+    <p><i class="fad fa-cocktail"></i></p>
+    <h1>BathTub Gin</h1>
+  </div>
+
+</div>
+ -->
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1571291731905-9fd9805bc584?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+
+    <h1>Look For your Favorite <strong>Drink</strong>!</h1>
+
+</div>
+
+
+<div class="container p-4">
+  <h1>Cocktails</h1>
+
+<br>
+
+
+  <div class="my-cards">
+    <% @cocktails.each do |c| %>
+
+
+        <%= link_to cocktail_path(c) do   %>
+          <div class="my-card">
+            <h1><%= c.name %></h1>
+          </div>
+
+        <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>

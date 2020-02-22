@@ -15,7 +15,15 @@ response = open(url).read
 cocktails = JSON.parse(response)
 drinks = cocktails['drinks']
 
+Cocktail.destroy_all
+Ingredient.destroy_all
+Dose.destroy_all
+
+Cocktail.create!(name: 'Long Island Iced Tea')
+
 drinks.each do |d|
   name = d['strIngredient1']
-  Ingredient.create(name: name)
+  Ingredient.create!(name: name)
 end
+
+Dose.create!(description: '3/4', ingredient_id: Ingredient.first.id, cocktail_id: Cocktail.first.id)
