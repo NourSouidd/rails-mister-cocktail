@@ -9,9 +9,9 @@
 require 'open-uri'
 require 'json'
 
-url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+url1 = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
-response = open(url).read
+response = open(url1).read
 cocktails = JSON.parse(response)
 drinks = cocktails['drinks']
 
@@ -19,7 +19,8 @@ Cocktail.destroy_all
 Ingredient.destroy_all
 Dose.destroy_all
 
-Cocktail.create!(name: 'Long Island Iced Tea')
+url = 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
+Cocktail.create!(name: 'Long Island Iced Tea', url: url)
 
 drinks.each do |d|
   name = d['strIngredient1']

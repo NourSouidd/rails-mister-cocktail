@@ -1,0 +1,12 @@
+<nav class="navbar navbar-light bg-light sticky">
+  <div>
+    <a class="logo" href="../cocktails"><i class="fas fa-cocktail"></i></a>
+    <a href="../cocktails"class="navbar-brand">BathTub Gin</a>
+
+  </div>
+  <form class="form-inline">
+    <%= link_to new_cocktail_path, class: "btn btn-outline-secondary my-2 my-sm-0 ml-2" do %>
+      <i class="fas fa-plus"></i> Add a Cocktail
+    <% end %>
+  </form>
+</nav>

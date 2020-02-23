@@ -1,5 +1,9 @@
 class CocktailsController < ApplicationController
 
+  def search
+    @cocktail = Cocktail.where(name: params[:search])
+  end
+
   def index
     @cocktails = Cocktail.all
   end
@@ -24,6 +28,6 @@ class CocktailsController < ApplicationController
   private
 
   def secure_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end

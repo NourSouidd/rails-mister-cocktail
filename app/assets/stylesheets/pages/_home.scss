@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .sticky {
@@ -30,6 +30,7 @@ a {
   background-position: center;
   height: 530px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
@@ -37,6 +38,7 @@ a {
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
 }
 
 .my-cards {
@@ -53,7 +55,7 @@ a {
     align-items: center;
     margin: 16px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-   background-image: url("https://images.unsplash.com/photo-1566733971017-f6a46e832e95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80");
+    background-image: url("https://images.unsplash.com/photo-1566733971017-f6a46e832e95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80");
   }
 }
 

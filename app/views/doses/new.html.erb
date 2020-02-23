@@ -1,13 +1,20 @@
+
+
 <div class="container p-4">
 
-  <%= simple_form_for([@cocktail, @dose]) do |f| %>
-    <%= f.input :description %>
+  <div class="dose-card p-4">
 
-    <%= f.association :ingredient %>
+    <div class="form">
+      <%= simple_form_for([@cocktail, @dose]) do |f| %>
+        <%= f.input :description %>
 
-    <%= f.submit class: 'btn btn-primary' %>
-  <% end %>
+        <%= f.association :ingredient %>
 
-  <%= link_to 'Back Home Page', cocktails_path %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+
+    </div>
+
+  </div>
 
 </div>

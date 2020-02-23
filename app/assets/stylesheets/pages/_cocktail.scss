@@ -1,0 +1,51 @@
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.description {
+  justify-self: right;
+  text-align: center;
+  padding: 20px;
+}
+
+img {
+  padding: 16px;
+  justify-self: center;
+  width: 600px;
+}
+
+.ingredients-card {
+  margin: 20px;
+  width: 490px;
+  border-top: 16px;
+  background: #f8f9fa;
+  padding: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  h1 {
+    padding: 12px;
+    border-bottom: 3px solid #F4F4F4;
+  }
+}
+
+.ingredients {
+  border-top: 16px;
+  text-align: center;
+
+}
+
+.ingredient {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 8px;
+  border-bottom: 3px solid #F4F4F4;
+
+  h6 {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+
