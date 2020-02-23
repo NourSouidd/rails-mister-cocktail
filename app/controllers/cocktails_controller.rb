@@ -1,11 +1,17 @@
 class CocktailsController < ApplicationController
 
-  def search
-    @cocktail = Cocktail.where(name: params[:search])
-  end
-
   def index
-    @cocktails = Cocktail.all
+
+    if params[:search].blank?
+      @cocktails = Cocktail.all
+    else
+      @parameter = params[:search].downcase
+      @cocktails = Cocktail.all.where("lower(name) LIKE :search", search: @parameter)
+    end
+  #   if params[:search].nil?
+  #   else
+  #     @cocktails = Cocktail.where(name: params[:search])
+  #   end
   end
 
   def show
