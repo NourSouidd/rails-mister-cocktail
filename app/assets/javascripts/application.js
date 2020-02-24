@@ -16,5 +16,4 @@
 //= require_tree .
 
 
-import 'bootstrap';
 
