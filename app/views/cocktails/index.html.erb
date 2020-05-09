@@ -1,5 +1,5 @@
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1516352254823-8fce5b3d7ec2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1516352254823-8fce5b3d7ec2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
 
     <h1>Look For your Favorite <strong>Drink</strong>!</h1>
     <div>
@@ -18,17 +18,14 @@
 
 <br>
 
-
   <div class="my-cards">
     <% @cocktails.each do |c| %>
+      <%= link_to cocktail_path(c) do %>
+        <div class="my-card" style="background-image: url('<%= c.url %>');">
+          <h1 class="text-center"><%= c.name %></h1>
+        </div>
 
-
-        <%= link_to cocktail_path(c) do   %>
-          <div class="my-card">
-            <h1><%= c.name %></h1>
-          </div>
-
-        <% end %>
+      <% end %>
     <% end %>
   </div>
 

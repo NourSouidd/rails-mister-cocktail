@@ -9,6 +9,8 @@
 require 'open-uri'
 require 'json'
 
+puts 'Seeding'
+
 url1 = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 response = open(url1).read
@@ -28,3 +30,5 @@ drinks.each do |d|
 end
 
 Dose.create!(description: '3/4', ingredient_id: Ingredient.first.id, cocktail_id: Cocktail.first.id)
+
+puts 'Finished!'
