@@ -1,37 +1,53 @@
+<div class="page">
+  <div>
+    <img src="<%= @cocktail.url %>" alt="">
+  </div>
+  <div class="description">
+    <h1><%= @cocktail.name %></h1>
 
+    <div class="ingredients-card">
+      <h1>Ingredients</h1>
 
-  <div class="page">
+      <div class="ingredients">
 
-    <div>
+          <% @cocktail.doses.each do |d| %>
+            <div class="ingredient">
+               <h6><%= d.description + ' ' + d.ingredient.name %></h6>
+                <%= link_to 'Delete', dose_path(d), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger my-2 my-sm-0 ml-2" %>
+            </div>
+          <% end %>
 
-      <img src="<%= @cocktail.url %>" alt="">
+          <%= link_to 'Add an ingredient', new_cocktail_dose_path(@cocktail), class: 'btn btn-outline-primary' %>
 
-    </div>
-
-
-    <div class="description">
-      <h1><%= @cocktail.name %></h1>
-
-      <div class="ingredients-card">
-        <h1>Ingredients</h1>
-
-        <div class="ingredients">
-
-            <% @cocktail.doses.each do |d| %>
-              <div class="ingredient">
-                 <h6><%= d.description + ' ' + d.ingredient.name %></h6>
-                  <%= link_to 'Delete', dose_path(d), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger my-2 my-sm-0 ml-2" %>
-              </div>
-            <% end %>
-
-            <%= link_to 'Add an ingredient', new_cocktail_dose_path(@cocktail), class: 'btn btn-outline-primary' %>
-
-        </div>
       </div>
-
+    </div>
   </div>
+</div>
+<% if @cocktail.reviews.empty? %>
+  <p>No reviews yet, be the first to add one !</p>
+<% else %>
+  <% @cocktail.reviews.each do |review| %>
+    <li class="list-group-item">
+      <small>
+        <% count = 0 %>
+        <% 5.times do %>
+          <% if review.rating > count %>
+            <i class="fas fa-star"></i>
+          <% else %>
+            <i class="far fa-star"></i>
+          <% end %>
+          <% count += 1 %>
+        <% end %>
+      </small>
+      <p><%= review.content %></p>
+    </li>
+  <% end %>
+<% end %>
 
-
-  </div>
+<%= simple_form_for [@cocktail, @review] do |f| %>
+  <%= f.input :rating, collection: 0..5 %>
+  <%= f.input :content %>
+  <%= f.submit value='Add comment', class: "btn btn-flat"%>
+<% end %>
 
 
